@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MVCFinalProject.Models.Computer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Computer Database Tool</h1>
+
+<form asp-controller="Computers" asp-action="Index" method="get">
+    <table>
+        <tr>
+            <td>Serial Number: <input type="number" name="sn" /></td>
+            <td>Min Price: $<input type="number" step="0.01" name="pf" /></td>
+            <td>Max Price: $<input type="number" step="0.01" name="pt" /></td>
+            <td>Earliest Installation Date: <input type="date" name="df" /></td>
+            <td>Latest Installation Date: <input type="date" name="dt" /></td>
+            <td>Room Number: <input type="number" name="rn" /></td>
+        </tr>
+    </table>
+    <br>
+    <input type="submit" value="Search" />
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactererSerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeRoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComputerSpecification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstallationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactererSerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeRoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComputerSpecification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstallationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
