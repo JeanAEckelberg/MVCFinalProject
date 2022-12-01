@@ -93,6 +93,8 @@ namespace MVCFinalProject.Models
         public DateTime InstallationDate { get; set; } = DateTime.Now;
 
         private decimal price;
+
+        [DisplayFormat(DataFormatString ="{0:c}", ApplyFormatInEditMode = true)]
         public decimal Price
         {
             get { return price; }
