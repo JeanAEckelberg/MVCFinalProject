@@ -111,7 +111,7 @@ namespace MVCFinalProject.Models
                         InstallationDate = DateTime.Parse("2022-3-12"),
                         Price = 100M
                     }
-                );
+                ) ;
                 context.SaveChanges();
             }
         }

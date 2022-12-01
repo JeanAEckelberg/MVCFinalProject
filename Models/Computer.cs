@@ -90,7 +90,7 @@ namespace MVCFinalProject.Models
 
 
         [DataType(DataType.Date)]
-        public DateTime InstallationDate { get; set; }
+        public DateTime InstallationDate { get; set; } = DateTime.Now;
 
         private decimal price;
         public decimal Price
