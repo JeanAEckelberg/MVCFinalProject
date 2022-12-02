@@ -30,7 +30,7 @@ namespace MVCFinalProject.Controllers
             }
             if (!String.IsNullOrEmpty(rn))
             {
-                computers = computers.Where(c => c.OfficeRoomNumber.Contains(rn));
+                computers = computers.Where(c => c.OfficeRoomNumber.ToLower().Equals(rn.ToLower()));
             }
             if (pf != null)
             {
